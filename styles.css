@@ -7,6 +7,10 @@
 }
 
 /* global styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: linear-gradient(30deg,rgba(42, 123, 155, 1) 0%, rgba(168, 197, 160, 1) 0%, rgba(245, 239, 230, 1) 100%);
 }
@@ -24,12 +28,30 @@ img {
 }
 
 h1, h2, h3, h4 {
-font-family: "Quicksand", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  color: #444;
+}
+
+h2 {
+  padding: 10px;
+  font-size: 2rem;
+}
+
+h3 {
+  padding: 10px
 }
 
 p, li, a {
   font-family: "Nunito", sans-serif;
   color: #444;
+}
+
+img {
+  object-fit: cover;
+}
+
+section {
+  margin: 20px 0;
 }
 
 /* Utilities */
@@ -41,12 +63,11 @@ p, li, a {
 
 /* header */
 #hero {
-  height: 50vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-bottom: 2px solid #A8C5A0;
 }
 
 #hero h1 {
@@ -60,25 +81,202 @@ p, li, a {
 }
 
 /* navigation */
+.main-nav{
+  position: sticky;
+  top: 0;
+  opacity: 0.9;
+  z-index: 1;
+}
 .nav-container {
   background-color: #A8C5A0;
   text-transform: uppercase;
   padding: 15px;
+  border-radius: 5px;
 }
 
 .nav-container ul {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .nav-container ul li a {
   padding: 15px;
   transition: background-color 0.3s ease;
+  font-weight: bold;
 }
 
 .nav-container ul li a:hover {
   background-color: #A7C7E7;
   color: #F5EFE6;
   text-shadow: 0 1px 4px #444;
+  border-bottom: 3px solid #e6a4b4;
 }
 
+.nav-container ul li a:active {
+  color: #e6a4b4;
+  background-color: #444;
+}
+
+.nav-container ul li a:focus {
+  outline: 1px solid #444  ;
+}
+
+/* tracker */
+#tracker {
+  padding: 20px;
+}
+
+.tracker-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.tracker-container .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  min-height: 150px;
+  margin: 10px;
+  background-color: #A7C7E7;
+  border-radius: 10px;
+  box-shadow: 0 4px 5px #444;
+  transition: transform 0.3s, background-color 0.3s ease;
+}
+
+.tracker-container .card:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  background-color: #A8C5A0;
+}
+
+.tracker-container .card h3,
+.tracker-container .card .emoji {
+  padding: 5px;
+}
+
+.tracker-container .card .emoji {
+  font-size: 3rem;
+  transition: transform 1s ease;
+}
+
+.tracker-container .tracker-1 .emoji:hover {
+  transform: rotate(360deg);
+  color: #F5EFE6;
+}
+
+.tracker-container .tracker-2 .emoji:hover,
+.tracker-container .tracker-3 .emoji:hover,
+.tracker-container .tracker-4 .emoji:hover {
+  transform: translate(5px);
+  color: #F5EFE6;
+}
+
+.tracker-4 .emoji p {
+  font-size: 1.5rem;
+}
+
+/* Journals */
+#journal {
+  padding: 20px;
+  background-color: #A7C7E7;
+  border-radius: 5px;
+}
+
+.journal-container {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.journal-container article {
+  min-width: 95%;
+  padding: 10px;
+  margin: 10px;
+  background-color: #F5EFE6;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #444;
+  transition: transform 1s ease;
+}
+
+.journal-container article:hover {
+  transform: translate(6px);
+}
+
+/* Quotes */
+#quote {
+  border-radius: 5px;
+  padding: 20px
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.quote-container p:nth-child(2) {
+  align-self: flex-end;
+}
+
+.quote-video {
+  width: 100%;
+}
+
+.quote-video iframe {
+  display: block;
+  margin: 20px auto;
+  width: 560px;
+  height: 315px;
+  box-shadow: 0 2px 6px #444;
+}
+
+/* Mood */
+#mood {
+  background-color: #A7C7E7;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.img-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 20px;
+  background-color: #F5EFE6;
+  border-radius: 5px;
+}
+
+.img-container div img {
+  min-width: 200px;
+  max-height: 200px;
+  border-radius: 5px;
+  transition: transform 1s ease;
+  box-shadow: 0 1px 5px #444;
+}
+
+.img-container div img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+  min-height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #444;
+}
+
+footer p {
+  color: #F5EFE6;
+}
